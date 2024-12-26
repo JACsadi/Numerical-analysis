@@ -7,7 +7,7 @@ double f(double x) {
     //x^3 - 4x -9;
 }
 void regulafalsi() {
-    double tolerance = 1e-17; int maxIterations = 10000;
+    double tolerance = 1e-17; int maxIterations = 100;
     double x1=guess1,x2=guess2;
     double x3 = x1;
     int iteration = 0;

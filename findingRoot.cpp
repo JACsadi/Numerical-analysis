@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //ax^3 + bx^2 + c^x + d = 0
+
 double bs(int a, int b, int c, int d) {
    double l = 0 , r = 100;
    int t= 400;
