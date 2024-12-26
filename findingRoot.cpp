@@ -5,13 +5,16 @@ using namespace std;
 double bs(int a, int b, int c, int d) {
    double l = 0 , r = 100;
    int t= 400;
+   double oldboy = 0;
    while(t--) {
     //x^3 - 4x - 9
      double m = (l+r)/2.0;
      double ans = (a*(m*m*m)) + (b * (m*m)) + (c*m) + d;
      double ansr = (a*((r)*(r)*(r))) + (b * ((r)*(r))) + (c*(r)) + d;
      double ansl =  (a*((l)*(l)*(l))) + (b * ((l)*(l))) + (c*(l)) + d;
-     double err = (ans - ansr)/ans;
+     double err ;
+    if(oldboy != 0) err = (ans - oldboy)/oldboy;
+    oldboy = ans;
      cout << "l == " << l << " r == " << r << " x == " << m << " f(x) == " << ans << " error == " << err << endl ;
      if(ans == 0) break;
      else if(ansr==0) l = m;
