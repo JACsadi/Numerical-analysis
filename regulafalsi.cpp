@@ -7,11 +7,16 @@ double f(double x) {
     //x^3 - 4x -9;
 }
 void regulafalsi() {
-    double tolerance = 1e-17; int maxIterations = 100;
+    double tolerance = 1e-16; int maxIterations = 1000000;
     double x1=guess1,x2=guess2;
-    double x3 = x1;
+    double x3 ;
     int iteration = 0;
     while (iteration < maxIterations) {
+         if (f(x1) * f(x2) > 0) {
+        cout << "Invalid initial guesses. f(x1) and f(x2) must have opposite signs." << endl;
+        return;
+       }
+        // xnew = (x1*y2 - x2*y1)/ (y2-y1);
         x3 = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1));
         printf("x--%.15lf f(x) -- %.15lf \n",x3,f(x3));
         if (fabs(f(x3)) < tolerance) {
@@ -33,3 +38,4 @@ int main() {
     cin >> guess1 >> guess2;
     regulafalsi();
 }
+// x^3 + 3x^2+ 3x+ 1 
